@@ -12,16 +12,18 @@ public class Main {
     public static void main(String[] args) {
         Participants[] participants = {new Cat(1400.0, 5.0), new Human(500., 1.5),
                 new Robot(10000., 10.)};
-        Obstacle[] obstacles = { new Road(100.), new Wall(4.)};
+        Obstacle[] obstacles = { new Road(600.), new Wall(4.)};
 
         for (Participants p: participants) {
             for (Obstacle obstacle: obstacles){
-                obstacle.overcoming(p);
+                boolean f  = obstacle.overcoming(p);
+                if (!f) {
+                    System.out.println("Сошёл с дистанции =(");
+                    break;
+                }
             }
-
+            System.out.println("-------------------------");
         }
     }
-
-
 
 }
